@@ -102,6 +102,11 @@ head:
 
 [OctConv [64, n_classes]]
 
+
+![unet_arc](https://user-images.githubusercontent.com/92104255/159626275-4f860720-6dca-4141-bbc6-7eb5f28896f0.png)
+
+
+
 ## Results
 In the course of the work, intermediate results were obtained for object detection using Yolov5, the results obtained on a small part of the dataset indicate that more data of target classes is needed (now one of the main difficulties - the disproportionality of the division of classes by photos, both in number and density of representatives of different classes), which, when cutting the original 8K photos into many small ones to a format suitable for Yolov5 training (in this case 640 pixels), creates a lot of "empty" photos that do not qualitatively increase accuracy, but are capable of making inappropriate noise (however, the study of the heterogeneity of objects in the photos showed that objects that are similar to the target objects of the class are not so common).
 In total, 77 large-format images were used for Yolo, divided into 12x12 images, the number of class targets is estimated at 10-12 thousand.
