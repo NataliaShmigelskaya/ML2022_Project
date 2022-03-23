@@ -81,10 +81,23 @@ head:
 
    [[17, 20, 23], 1, Detect, [nc, anchors]],  # Detect(P3, P4, P5)
   ]
+# Unet 
+[DoubleConv [n_channels, 64]]
+[Down1 [64, 128]]
+[Down2 [128, 256]]
+[Down3 [256, 512]]
+[Down4 [512, 1024]]
+[Up1 [1024, 512]]
+[Up2 [512, 256]]
+[Up3 [256, 128]]
+[Up4 [128, 64]]
+[OctConv [64, n_classes]]
 
 ## Results
 In the course of the work, intermediate results were obtained for object detection using Yolov5, the results obtained on a small part of the dataset indicate that more data of target classes is needed (now one of the main difficulties - the disproportionality of the division of classes by photos, both in number and density of representatives of different classes), which, when cutting the original 8K photos into many small ones to a format suitable for Yolov5 training (in this case 640 pixels), creates a lot of "empty" photos that do not qualitatively increase accuracy, but are capable of making inappropriate noise (however, the study of the heterogeneity of objects in the photos showed that objects that are similar to the target objects of the class are not so common).
 In total, 77 large-format images were used for Yolo, divided into 12x12 images, the number of class targets is estimated at 10-12 thousand.
+
+When running Unet segmentation, intermediate results were obtained. When starting the file train.py an error "RuntimeError: CUDA out of memory" was received .
 
 ## Built With
 PyTorch, Linux, CVAT, CUDA, Colab
