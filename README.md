@@ -82,15 +82,15 @@ head:
    [[17, 20, 23], 1, Detect, [nc, anchors]],  # Detect(P3, P4, P5)
   ]
 # Unet 
-[DoubleConv [n_channels, 64]]
-[Down1 [64, 128]]
-[Down2 [128, 256]]
-[Down3 [256, 512]]
-[Down4 [512, 1024]]
-[Up1 [1024, 512]]
-[Up2 [512, 256]]
-[Up3 [256, 128]]
-[Up4 [128, 64]]
+[DoubleConv [n_channels, 64]], 
+[Down1 [64, 128]],
+[Down2 [128, 256]],
+[Down3 [256, 512]],
+[Down4 [512, 1024]],
+[Up1 [1024, 512]],
+[Up2 [512, 256]],
+[Up3 [256, 128]],
+[Up4 [128, 64]],
 [OctConv [64, n_classes]]
 
 ## Results
